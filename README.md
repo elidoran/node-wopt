@@ -23,41 +23,52 @@ This library wraps **nopt** so look at the [nopt README](https://www.npmjs.com/p
 Then, look here to see the extra functionality added by **wopt**.
 
 ```javascript
+// we'll use this to specify the type of an option
 var path = require('path')
-  , options = require('wopt')({
-  // the usual spot for options
-  version: Boolean,
-  help   : Boolean,
-  from   : [path, Array],
-  to     : [path],
-}, {
-  // the usual spot for aliases
-  v: ['--version'],
-  h: ['--help'],
-  f: ['--from'],
-  t: ['--to'],
-  // and now the aliases allowed by wopt.
-  // put them into their own object so they can be easily separated.
-  $words: {
-    version: '--version',
-    help   : '--help',
-    '?'    : '--help'
-    from   : '--from',
-    to     : '--to',
+  , wopt = require('wopt')
+  , optionSpec = {
+      // the usual spot for options
+      version: Boolean,
+      help   : Boolean,
+      from   : [path, Array],
+      to     : [path],
   }
-},
-// finally, the same optional stuff (unneeded unless its a special case)
-process.argv, 2)
+  , aliases = {
+    // the usual spot for aliases
+    v: ['--version'],
+    h: ['--help'],
+    f: ['--from'],
+    t: ['--to'],
+    // and now the aliases allowed by wopt.
+    // put them into their own object so they can be easily separated.
+    $words: {
+      version: '--version',
+      help   : '--help',
+      '?'    : '--help'
+      from   : '--from',
+      to     : '--to',
+    }
+  }
+  , parsed = wopt(optionSpec, aliases, process.argv, 2)
 
 // these commands would all produce the same result, shown below:
 //   node myindex.js --from some/file --from another/file --to output/file
 //   node myindex.js -f some/file -f another/file -t output/file
 //*  node myindex.js from some/file from another/file to output/file
 
-// resulting `options` object:
+// resulting `parsed` object of the last one:
 {
   from: [ 'some/file', 'another/file' ] // paths
   to  : 'output/file' // path
+  argv: {
+    original: [ // the original before this library changed the words
+      'from', 'some/file', 'from', 'another/file', 'to', 'output/file'
+    ],
+    cooked: [
+      '--from', 'some/file', '--from', 'another/file', '--to', 'output/file'
+    ],
+    remain: []
+  }
 }
 
 // with the above options these alternatives are also available:
