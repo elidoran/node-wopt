@@ -1,3 +1,9 @@
+'use strict'
+
+# TODO: allow a 5th param 'initial' which is an object to fill in with results
+# in case they want to specify all properties on their options object up front
+# and allow cli parsing to alter the values.
+
 module.exports = (options, aliases, args = process.argv, slice = 2) ->
 
   # let's do the slicing upfront because we may copy it for `original`
