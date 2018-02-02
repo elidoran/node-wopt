@@ -1,6 +1,6 @@
 {
   "name": "wopt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Enhances nopt with ability to interpret words as options",
   "main": "lib",
   "keywords": [
