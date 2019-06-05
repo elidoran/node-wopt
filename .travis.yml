@@ -8,6 +8,11 @@ node_js:
   - "10"
   - "12"
 
+os:
+  - linux
+  - macos
+  - win
+
 script: npm run coverage
 
 after_success:
