@@ -22,8 +22,8 @@
   "author": "Eli Doran <eli+npm@elidoran.com>",
   "license": "MIT",
   "scripts": {
-    "test": "_mocha --require coffee-script/register --reporter spec --bail --check-leaks test/lib/*.coffee",
-    "coverage": "istanbul cover _mocha -- --require coffee-script/register -R spec test/lib/*.coffee"
+    "test": "_mocha --require coffeescript/register --reporter spec --bail --check-leaks test/lib/*.coffee",
+    "coverage": "istanbul cover _mocha -- --require coffeescript/register -R spec test/lib/*.coffee"
   },
   "repository": {
     "type": "git",
