@@ -1,5 +1,5 @@
 assert = require 'assert'
-wopt = require '../../lib'
+wopt = require '../../lib/index.js'
 
 describe 'test wopt', ->
 
