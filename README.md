@@ -1,6 +1,5 @@
 # wopt
 [![Build Status](https://travis-ci.org/elidoran/node-wopt.svg?branch=master)](https://travis-ci.org/elidoran/node-wopt)
-[![Dependency Status](https://gemnasium.com/elidoran/node-wopt.png)](https://gemnasium.com/elidoran/node-wopt)
 [![npm version](https://badge.fury.io/js/wopt.svg)](http://badge.fury.io/js/wopt)
 [![Coverage Status](https://coveralls.io/repos/github/elidoran/node-wopt/badge.svg?branch=master)](https://coveralls.io/github/elidoran/node-wopt?branch=master)
 
